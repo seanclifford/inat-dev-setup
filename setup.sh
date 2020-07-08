@@ -2,4 +2,11 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 echo Pulling down inaturalist
-git -C $DIR/.. clone https://github.com/inaturalist/inaturalist.git
+if [ -d "$DIR/../inaturalist" ]; then
+  git -C $DIR/../inaturalist pull
+else
+  git -C $DIR/.. clone https://github.com/inaturalist/inaturalist.git
+fi
+
+RUBY_VER=$(cat $DIR/../inaturalist/.ruby-version)
+echo installing ruby $RUBY_VER TODO
