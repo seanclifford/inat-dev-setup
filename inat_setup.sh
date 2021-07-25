@@ -2,6 +2,8 @@
 
 cd ../inaturalist
 
+nvm use
+
 # Set up your gems, config files, and database
 ruby bin/setup
 
