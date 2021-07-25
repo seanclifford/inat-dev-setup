@@ -1,0 +1,1 @@
+sudo -u postgres -H -- psql -c "CREATE ROLE $USER LOGIN SUPERUSER"
