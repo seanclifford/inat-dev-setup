@@ -7,3 +7,10 @@ if [ -d "$DIR/../inaturalist" ]; then
 else
   git -C $DIR/.. clone https://github.com/inaturalist/inaturalist.git
 fi
+
+echo Pulling down iNaturalistAPI
+if [ -d "$DIR/../iNaturalistAPI" ]; then
+  git -C $DIR/../iNaturalistAPI pull
+else
+  git -C $DIR/.. clone https://github.com/inaturalist/iNaturalistAPI.git
+fi
