@@ -16,3 +16,5 @@ sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-d
 . install_nodejs.sh
 
 . install_ruby.sh
+
+. install_docker.sh
