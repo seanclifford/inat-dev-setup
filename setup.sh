@@ -11,8 +11,6 @@ sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-d
 #echo attempting to start PostgreSQL
 #sudo systemctl start postgresql@12-main
 
-#TODO: Install Docker and setup iNat service dependencies
-
 . install_nodejs.sh
 
 . install_ruby.sh
