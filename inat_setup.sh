@@ -6,6 +6,10 @@ cd ../inaturalist
 echo "USERNAME=$USER
 PASSWORD=$USER" > .env
 
+#Set Postgres default username password to use
+echo "*:*:*:$USER:$USER" > ~/.pgpass
+chmod u=rw,og= ~/.pgpass
+
 #set the example as the real override (should use the env variables above)
 cp docker-compose.override.yml.example docker-compose.override.yml
 
