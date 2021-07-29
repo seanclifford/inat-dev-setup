@@ -16,3 +16,5 @@ sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-d
 . install_ruby.sh
 
 . install_docker.sh
+
+echo "You will need to logout and log back in before running the next script."
