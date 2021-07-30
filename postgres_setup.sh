@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-sudo -u postgres -H -- psql -c "CREATE ROLE $USER LOGIN SUPERUSER CREATEDB"
-sudo -u postgres -H -- psql -c "ALTER ROLE $USER WITH PASSWORD '$USER'"
+#export PGHOST="localhost"
+
+if ! command grep -qc ' PGHOST' ~/.bashrc; then
+      echo "=> Appending PGHOST env var to ~/.bashrc"
+      PGHOST_ENV="\\n#Sets the default Postgres host\\nexport PGHOST=\"localhost\"\\n"
+      command printf "$PGHOST_ENV" >> ~/.bashrc
+else
+      echo "=> PGHOST env var already in ~/.bashrc"
+fi
 
 echo "*:*:*:$USER:$USER" > ~/.pgpass
 chmod u=rw,og= ~/.pgpass
