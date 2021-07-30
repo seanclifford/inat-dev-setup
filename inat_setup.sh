@@ -23,8 +23,30 @@ make services
 
 nvm use
 
+gem install bundler
+
 # Set up your gems, config files, and database
 ruby bin/setup
+
+#install node packages
+npm install
+
+#build ReactJS code
+./node_modules/.bin/gulp webpack
+
+#make sure rails command is availalble
+rbenv rehash
+
+#Setup an initial site
+rails r "Site.create( name: 'iNaturalist', url: 'http://localhost:3000' )"
+
+#Load some seed data...
+# Load source records for citation
+rails r tools/load_sources.rb
+# Load the basic iconic taxa to get the taxonomy started
+rails r tools/load_iconic_taxa.rb
+# Generate translation files (optional)
+#rake inaturalist:generate_translations_js
 
 # Watch the output for errors! In particular, make sure the database gets
 # created correctly. If it doesn't check the settings in config/database.yml
@@ -32,4 +54,5 @@ ruby bin/setup
 # get absolutely everything working, especially third party services.
 
 #Setup iNaturalistAPI with docker (have to get database setup first by bin/setup)
-make services-api
+echo "run: make services-api in a terminal window to run the API"
+echo "run: rails s -b 127.0.0.1 in a terminal window to run the inaturalist website (accessable on http://127.0.0.1:3000)"
