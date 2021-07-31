@@ -70,6 +70,9 @@ rails r tools/import_natural_earth_countries.rb
 #rails r tools/import_us_states.rb
 #rails r tools/import_us_counties.rb
 
+rails r "User.create( login: 'testerson', password: 'tester', password_confirmation: 'tester', email: 'test@example.com' )"
+rails r tools/load_dummy_observations.rb
+
 # Watch the output for errors! In particular, make sure the database gets
 # created correctly. If it doesn't check the settings in config/database.yml
 # Note that you will need to fill out some of the config YML files in config/ to
