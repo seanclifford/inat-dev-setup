@@ -3,7 +3,7 @@
 . pull_down_inaturalist_repo.sh
 
 echo installing some dev dependencies...
-sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev libpq-dev
+sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev libpq-dev libgeos-dev libgeos++-dev libproj-dev postgresql-client-common postgresql-client-12
 
 #echo installing iNaturalist dependencies
 #sudo apt-get install -y imagemagick redis memcached postgis
