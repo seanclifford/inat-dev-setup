@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#export PGHOST="localhost"
-
 if ! command grep -qc ' PGHOST' ~/.bashrc; then
       echo "=> Appending PGHOST env var to ~/.bashrc"
       PGHOST_ENV="\\n#Sets the default Postgres host\\nexport PGHOST=\"localhost\"\\n"

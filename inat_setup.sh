@@ -17,6 +17,27 @@ cat ../iNaturalistAPI/config_example.js | sed 's/"username"/"'$USER'"/' | sed 's
 #Run the makefile to setup docker services
 make services
 
+#Set elasticsearch size limits to be very small for dev
+curl -XPUT 'localhost:9200/_cluster/settings' -H "Content-Type: application/json" -d '
+{
+  "transient": {
+    "cluster.routing.allocation.disk.watermark.low": "2gb",
+    "cluster.routing.allocation.disk.watermark.high": "100mb",
+    "cluster.routing.allocation.disk.watermark.flood_stage": "50mb",
+    "cluster.info.update.interval": "1m"
+  }
+}'
+
+#Ensure elasticsearch has not fallen into readonly already
+curl -XPUT 'localhost:9200/_all/_settings' -H "Content-Type: application/json" -d '
+{
+    "index" : {
+        "blocks" : {
+          "read_only_allow_delete": false
+        }
+    }
+}'
+
 nvm use
 
 gem install bundler
