@@ -65,6 +65,11 @@ rails r tools/load_iconic_taxa.rb
 # Generate translation files (optional)
 #rake inaturalist:generate_translations_js
 
+# Add the basic countries. US states and counties optional... They take up a bit of space
+rails r tools/import_natural_earth_countries.rb
+#rails r tools/import_us_states.rb
+#rails r tools/import_us_counties.rb
+
 # Watch the output for errors! In particular, make sure the database gets
 # created correctly. If it doesn't check the settings in config/database.yml
 # Note that you will need to fill out some of the config YML files in config/ to
