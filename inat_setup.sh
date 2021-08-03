@@ -38,6 +38,16 @@ curl -XPUT 'localhost:9200/_all/_settings' -H "Content-Type: application/json" -
     }
 }'
 
+#copy over elasticsearch files into inaturalist folder (or setting up indexes won't work). TODO: check all this is required...
+mkdir elasticsearch
+sudo docker cp es:/usr/share/elasticsearch/bin/. elasticsearch/bin
+sudo docker cp es:/usr/share/elasticsearch/config/. elasticsearch/config
+sudo docker cp es:/usr/share/elasticsearch/jdk/. elasticsearch/jdk
+sudo docker cp es:/usr/share/elasticsearch/lib/. elasticsearch/lib
+sudo docker cp es:/usr/share/elasticsearch/modules/. elasticsearch/modules
+sudo docker cp es:/usr/share/elasticsearch/plugins/. elasticsearch/plugins
+sudo chown -R $USER: elasticsearch
+
 nvm use
 
 gem install bundler
@@ -53,6 +63,9 @@ npm install
 
 #make sure rails command is availalble
 rbenv rehash
+
+#Setup elasticsearch indexes
+rake es:rebuild
 
 #Setup an initial site
 rails r "Site.create( name: 'iNaturalist', url: 'http://localhost:3000' )"
