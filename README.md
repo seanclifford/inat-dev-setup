@@ -1,2 +1,60 @@
 # inat-dev-setup
-Scripts to get up and running with inaturalist development
+
+Scripts to help get up and running with inaturalist development.
+
+These have been written and tested against Ubuntu (xubuntu 18.04), and work as at mid 2021. 
+
+## Dependencies
+- Ubuntu (or similar distro) as the OS
+- Git installed
+- Have access to run as sudo
+
+## How to run
+Start by pulling down this repository.
+
+#### Install dependencies
+Run the `setup.sh` script from the terminal:
+```
+. setup.sh
+```
+This will:
+- Pull down the inaturalist and iNaturalistAPI repositories into sibling folders
+- Install some required packages
+- Install rbenv and the correct version of ruby
+- Install nvm and the correct version of nodejs
+- Install docker and docker-compose
+- Setup some configuration for postgres
+
+#### Setup iNaturalist
+Run `inat_setup.sh` from the terminal
+```
+. inat_setup.sh
+```
+This will:
+- Setup config files to use the same username/password for postgres
+- Use the makefile to start the docker containers for postgres, memcached, redis and elasticsearch
+- Ensure elasticsearch is configured to run with low disk space, and later scripts will run by copying some files from the es container. 
+- Run the iNaturalist ruby setup to install gems and setup the databases
+- Install node packages
+- Build ReactJS code
+- Create the elasticsearch indexes
+- Setup some minimal dummy data (site, user, places, observations, taxa)
+
+### Run it
+To run the iNaturalistAPI, run this from the inaturalist folder:
+```
+make services-api
+```
+To run the iNaturalist web server, run this from the inaturalist folder:
+```
+rails s -b 127.0.0.1
+```
+
+### Browse
+Go to http://127.0.0.1:3000 to access your local iNaturalist site. http://127.0.0.1:4000 for the api.
+
+## Disclaimer
+While these scripts have been written to be reasonably flexible, changes to the inaturalist codebase may break portions of them over time.
+
+## Acknowledgement
+The main sources of what to setup have come from the [iNaturalist Development Setup Guide](https://github.com/inaturalist/inaturalist/wiki/Development-Setup-Guide), and from their [Contributing document](https://github.com/inaturalist/inaturalist/blob/main/CONTRIBUTING.md)
