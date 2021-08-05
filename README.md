@@ -17,9 +17,9 @@ git clone https://github.com/seanclifford/inat-dev-setup.git
 ```
 
 #### Install dependencies
-Run the `setup.sh` script from the terminal:
+Run this from the terminal:
 ```
-. setup.sh
+. setup_dependencies.sh
 ```
 This will:
 - Pull down the inaturalist and iNaturalistAPI repositories into sibling folders
@@ -33,9 +33,9 @@ This will:
 You'll need to log out and back in again after the initial setup. Otherwise the next script will have failures.
 
 #### Setup iNaturalist
-Run `inat_setup.sh` from the terminal.
+Run this from the terminal:
 ```
-. inat_setup.sh
+. setup_inat.sh
 ```
 This will:
 - Setup config files to use the same username/password for postgres
