@@ -8,9 +8,13 @@ These have been written and tested against Ubuntu (xubuntu 18.04), and work as a
 - Ubuntu (or similar distro) as the OS
 - Git installed
 - Have access to run as sudo
+- Enough disk space. If running on a VM (as I do), I'd recommend at minimum 20GB for OS + iNaturalist.
 
 ## How to run
 Start by pulling down this repository.
+```
+git clone https://github.com/seanclifford/inat-dev-setup.git
+```
 
 #### Install dependencies
 Run the `setup.sh` script from the terminal:
@@ -25,8 +29,11 @@ This will:
 - Install docker and docker-compose
 - Setup some configuration for postgres
 
+#### Log out
+You'll need to log out and back in again after the initial setup. Otherwise the next script will have failures.
+
 #### Setup iNaturalist
-Run `inat_setup.sh` from the terminal
+Run `inat_setup.sh` from the terminal.
 ```
 . inat_setup.sh
 ```
@@ -41,7 +48,7 @@ This will:
 - Setup some minimal dummy data (site, user, places, observations, taxa)
 
 ### Run it
-To run the iNaturalistAPI, run this from the inaturalist folder:
+To run the iNaturalistAPI, run this from the inaturalist folder. First run will take a while:
 ```
 make services-api
 ```
@@ -57,4 +64,4 @@ Go to http://127.0.0.1:3000 to access your local iNaturalist site. http://127.0.
 While these scripts have been written to be reasonably flexible, changes to the inaturalist codebase may break portions of them over time.
 
 ## Acknowledgement
-The main sources of what to setup have come from the [iNaturalist Development Setup Guide](https://github.com/inaturalist/inaturalist/wiki/Development-Setup-Guide), and from their [Contributing document](https://github.com/inaturalist/inaturalist/blob/main/CONTRIBUTING.md)
+The main sources of what to setup have come from the [iNaturalist Development Setup Guide](https://github.com/inaturalist/inaturalist/wiki/Development-Setup-Guide), and from their [Contributing document](https://github.com/inaturalist/inaturalist/blob/main/CONTRIBUTING.md).
