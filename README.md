@@ -1,6 +1,6 @@
 # inat-dev-setup
 
-Scripts to help get up and running with inaturalist development.
+Scripts to help get up and running with [inaturalist](https://github.com/inaturalist/inaturalist) development.
 
 These have been written and tested against Ubuntu (xubuntu 18.04), and work as at mid 2021. 
 
@@ -17,15 +17,15 @@ git clone https://github.com/seanclifford/inat-dev-setup.git
 ```
 
 #### Install dependencies
-Run this from the terminal:
+Run:
 ```
 . setup_dependencies.sh
 ```
 This will:
-- Pull down the inaturalist and iNaturalistAPI repositories into sibling folders
+- Pull down the [inaturalist](https://github.com/inaturalist/inaturalist) and [iNaturalistAPI](https://github.com/inaturalist/iNaturalistAPI) repositories into sibling folders
 - Install some required packages
-- Install rbenv and the correct version of ruby
-- Install nvm and the correct version of nodejs
+- Install [rbenv](https://github.com/rbenv/rbenv) and the correct version of ruby
+- Install [nvm](https://github.com/nvm-sh/nvm) and the correct version of node.js
 - Install docker and docker-compose
 - Setup some configuration for postgres
 
@@ -33,7 +33,7 @@ This will:
 You'll need to log out and back in again after the initial setup. Otherwise the next script will have failures.
 
 #### Setup iNaturalist
-Run this from the terminal:
+Run:
 ```
 . setup_inat.sh
 ```
@@ -43,7 +43,7 @@ This will:
 - Ensure elasticsearch is configured to run with low disk space, and later scripts will run by copying some files from the es container. 
 - Run the iNaturalist ruby setup to install gems and setup the databases
 - Install node packages
-- Build ReactJS code
+- Build React code
 - Create the elasticsearch indexes
 
 #### Setup initial dummy data
