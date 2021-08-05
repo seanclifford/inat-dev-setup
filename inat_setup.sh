@@ -51,6 +51,7 @@ sudo chown -R $USER: elasticsearch
 nvm use
 
 gem install bundler
+bundle install
 
 # Set up your gems, config files, and database
 ruby bin/setup
