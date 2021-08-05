@@ -45,7 +45,15 @@ This will:
 - Install node packages
 - Build ReactJS code
 - Create the elasticsearch indexes
-- Setup some minimal dummy data (site, user, places, observations, taxa)
+
+#### Setup initial dummy data
+Run:
+```
+. setup_initialdata.sh
+```
+This will setup some minimal dummy data (site, user, places, observations, taxa).
+
+The first and initally only user will be `testerson`, password `tester`.
 
 ### Run it
 To run the iNaturalistAPI, run this from the inaturalist folder. First run will take a while:
@@ -59,6 +67,11 @@ rails s -b 127.0.0.1
 
 ### Browse
 Go to http://127.0.0.1:3000 to access your local iNaturalist site. http://127.0.0.1:4000 for the api.
+
+## Known issues
+1. The Location search box on the `/observations` page doesn't seem to load correctly.
+2. Google Maps isn't setup out of the box. You'll need to do that manually, as you'll need your own API key.
+3. A whole lot of other integrations are not setup for the same reason as Google. See `inaturalist/config/config.yml` for more.
 
 ## Disclaimer
 While these scripts have been written to be reasonably flexible, changes to the inaturalist codebase may break portions of them over time.
