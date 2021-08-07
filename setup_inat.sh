@@ -13,6 +13,23 @@ cat ../iNaturalistAPI/config_example.js | sed 's/"username"/"'$USER'"/' | sed 's
 #Run the makefile to setup docker services
 make services
 
+nvm use
+
+gem install bundler --conservative
+bundle install
+
+# Set up your gems, config files, and database
+ruby bin/setup
+
+#install node packages
+npm install
+
+#build ReactJS code
+./node_modules/.bin/gulp webpack
+
+#make sure rails command is available
+rbenv rehash
+
 #Set elasticsearch size limits to be very small for dev
 curl -XPUT 'localhost:9200/_cluster/settings' -H "Content-Type: application/json" -d '
 {
@@ -43,23 +60,6 @@ sudo docker cp es:/usr/share/elasticsearch/lib/. elasticsearch/lib
 sudo docker cp es:/usr/share/elasticsearch/modules/. elasticsearch/modules
 sudo docker cp es:/usr/share/elasticsearch/plugins/. elasticsearch/plugins
 sudo chown -R $USER: elasticsearch
-
-nvm use
-
-gem install bundler
-bundle install
-
-# Set up your gems, config files, and database
-ruby bin/setup
-
-#install node packages
-npm install
-
-#build ReactJS code
-./node_modules/.bin/gulp webpack
-
-#make sure rails command is availalble
-rbenv rehash
 
 #Setup elasticsearch indexes
 rake es:rebuild
