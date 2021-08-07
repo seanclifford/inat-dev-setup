@@ -2,12 +2,8 @@
 
 cd ../inaturalist
 
-#create docker .env file for username/password
-echo "USERNAME=$USER
-PASSWORD=$USER" > .env
-
-#set the example as the real override (should use the env variables above)
-cp docker-compose.override.yml.example docker-compose.override.yml
+#set the example as the real override with replacements
+cat docker-compose.override.yml.example | sed 's/\${USERNAME}/'$USER'/' | sed 's/\${PASSWORD}/'$USER'/' > docker-compose.override.yml
 
 #Make sure we use the same username/password for the API db user
 cat ../iNaturalistAPI/docker-compose.override.yml.example | sed 's/username/'$USER'/' | sed 's/password/'$USER'/' > ../iNaturalistAPI/docker-compose.override.yml
