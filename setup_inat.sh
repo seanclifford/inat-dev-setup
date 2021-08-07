@@ -15,9 +15,6 @@ make services
 
 nvm use
 
-gem install bundler --conservative
-bundle install
-
 # Set up your gems, config files, and database
 ruby bin/setup
 
