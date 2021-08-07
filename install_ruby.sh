@@ -2,14 +2,14 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-echo installing rbenv with rbenv-installer
+echo "installing rbenv with rbenv-installer"
 wget -q https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer -O- | bash
 
-echo initialising rbenv
+echo "initialising rbenv"
 ~/.rbenv/bin/rbenv init
 
 RUBY_VER=$(cat $DIR/../inaturalist/.ruby-version)
-echo installing ruby $RUBY_VER with rbenv
+echo "installing ruby $RUBY_VER with rbenv"
  ~/.rbenv/bin/rbenv install $RUBY_VER
 
 ~/.rbenv/bin/rbenv rehash
