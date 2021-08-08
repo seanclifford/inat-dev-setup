@@ -40,10 +40,10 @@ Run:
 This will:
 - Setup config files to use the same username/password for postgres
 - Use the makefile to start the docker containers for postgres, memcached, redis and elasticsearch
-- Ensure elasticsearch is configured to run with low disk space, and later scripts will run by copying some files from the es container. 
 - Run the iNaturalist ruby setup to install gems and setup the databases
 - Install node packages
 - Build React code
+- Ensure elasticsearch is configured to run with low disk space. 
 - Create the elasticsearch indexes
 
 #### Setup initial dummy data
@@ -69,9 +69,10 @@ rails s -b 127.0.0.1
 Go to http://127.0.0.1:3000 to access your local iNaturalist site. http://127.0.0.1:4000 for the api.
 
 ## Known issues
-1. The Location search box on the `/observations` page doesn't seem to load correctly.
-2. Google Maps isn't setup out of the box. You'll need to do that manually, as you'll need your own API key.
-3. A whole lot of other integrations are not setup for the same reason as Google. See `inaturalist/config/config.yml` for more.
+1. Google API isn't setup. This affects all Google Maps on the site, and the location search box on the `/observations` page. You'll need to do that manually, as you'll need your own API key.
+2. A whole lot of other integrations are not setup for the same reason as Google. 
+
+See `inaturalist/config/config.yml` for more things to setup.
 
 ## Disclaimer
 While these scripts have been written to be reasonably flexible, changes to the inaturalist codebase may break portions of them over time.
