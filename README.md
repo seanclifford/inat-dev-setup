@@ -70,7 +70,8 @@ Go to http://127.0.0.1:3000 to access your local iNaturalist site. http://127.0.
 
 ## Known issues
 1. Google API isn't setup. This affects all Google Maps on the site, and the location search box on the `/observations` page. You'll need to do that manually, as you'll need your own API key.
-2. A whole lot of other integrations are not setup for the same reason as Google. 
+2. A whole lot of other integrations are not setup for the same reason as Google.
+3. The iNaturalistAPI doesn't seem to work with authenticated requests like `/users/me`
 
 See `inaturalist/config/config.yml` for more things to setup.
 
