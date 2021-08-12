@@ -3,7 +3,7 @@
 echo "installing docker"
 wget -qO- https://get.docker.com | bash
 
-CURR_USER=$(logname)
+CURR_USER=${SUDO_USER:-${USER}}
 echo "allowing docker to be run by the $CURR_USER account without sudo  (requires logout/restart to complete)"
 groupadd docker
 usermod -aG docker $CURR_USER
