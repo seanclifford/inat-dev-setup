@@ -6,7 +6,8 @@ sudo apt-get install -y \
     libreadline-dev \
     zlib1g-dev \
     libcurl4-openssl-dev \
-    libpq-dev libgeos-dev \
+    libpq-dev \
+    libgeos-dev \
     libgeos++-dev \
     libproj-dev \
     postgresql-client-common \
