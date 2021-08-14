@@ -12,7 +12,8 @@ sudo apt-get install -y \
     libproj-dev \
     postgresql-client-common \
     postgresql-client-12 \
-    imagemagick
+    imagemagick \
+    libimage-exiftool-perl
 
 . pull_down_inaturalist_repo.sh
 
