@@ -62,7 +62,7 @@ make services-api
 ```
 To run the iNaturalist web server, run this from the inaturalist folder:
 ```
-rails s -b 127.0.0.1
+rails s -b 0.0.0.0
 ```
 
 ### Browse
