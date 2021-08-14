@@ -22,4 +22,4 @@ rails r "User.create( login: 'testerson', password: 'tester', password_confirmat
 rails r tools/load_dummy_observations.rb
 
 echo "run: make services-api in a terminal window to run the API"
-echo "run: rails s -b 127.0.0.1 in a terminal window to run the inaturalist website (accessable on http://127.0.0.1:3000)"
+echo "run: rails s -b 0.0.0.0 in a terminal window to run the inaturalist website (accessable on http://127.0.0.1:3000)"
