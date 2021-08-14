@@ -5,8 +5,12 @@ cd ../inaturalist
 #set the example as the real override with replacements
 cat docker-compose.override.yml.example | sed 's/\${USERNAME}/'$USER'/' | sed 's/\${PASSWORD}/'$USER'/' > docker-compose.override.yml
 
-#Make sure we use the same username/password for the API db user
+#Make sure we use the same username/password for the API db user + extra_hosts
 cat ../iNaturalistAPI/docker-compose.override.yml.example | sed 's/username/'$USER'/' | sed 's/password/'$USER'/' > ../iNaturalistAPI/docker-compose.override.yml
+cat >> ../iNaturalistAPI/docker-compose.override.yml<< EOF
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+EOF
 
 cat ../iNaturalistAPI/config_example.js | sed 's/"username"/"'$USER'"/' | sed 's/"password"/"'$USER'"/' > ../iNaturalistAPI/config.js
 
