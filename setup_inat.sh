@@ -54,3 +54,9 @@ curl -XPUT 'localhost:9200/_all/_settings' -H "Content-Type: application/json" -
 
 #Setup elasticsearch indexes
 rake es:rebuild
+
+cd ../iNaturalistAPI
+
+npm install
+
+cd ../inat-dev-setup
