@@ -53,16 +53,20 @@ Run:
 ```
 This will setup some minimal dummy data (site, user, places, observations, taxa).
 
-The first and initally only user will be `testerson`, password `tester`.
+The first user will be `testerson`, password `tester`. Others are also created. Check the script for more.
 
 ### Run it
-To run the iNaturalistAPI, run this from the inaturalist folder. First run will take a while:
+To run the iNaturalistAPI, run this from the iNaturalistAPI folder:
 ```
-make services-api
+node app.js
 ```
 To run the iNaturalist web server, run this from the inaturalist folder:
 ```
 rails s -b 0.0.0.0
+```
+To run the background delayed worker (for most notifications, and some other things) run this from the inaturalist folder:
+```
+. script/delayed_job start
 ```
 
 ### Browse
@@ -71,7 +75,6 @@ Go to http://127.0.0.1:3000 to access your local iNaturalist site. http://127.0.
 ## Known issues
 1. Google API isn't setup. This affects all Google Maps on the site, and the location search box on the `/observations` page. You'll need to do that manually, as you'll need your own API key.
 2. A whole lot of other integrations are not setup for the same reason as Google.
-3. The iNaturalistAPI doesn't seem to work with authenticated requests like `/users/me`
 
 See `inaturalist/config/config.yml` for more things to setup.
 
