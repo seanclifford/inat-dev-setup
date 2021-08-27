@@ -2,7 +2,7 @@
 
 Scripts to help get up and running with [inaturalist](https://github.com/inaturalist/inaturalist) development.
 
-These have been written and tested against Ubuntu (xubuntu 18.04), and work as at mid 2021. 
+These have been written and tested against Ubuntu (xubuntu 18.04 and lubuntu 20.04), and work as at mid 2021. 
 
 ## Dependencies
 - Ubuntu (or similar distro) as the OS
@@ -66,7 +66,7 @@ rails s -b 0.0.0.0
 ```
 To run the background delayed worker (for most notifications, and some other things) run this from the inaturalist folder:
 ```
-. script/delayed_job start
+ruby script/delayed_job start
 ```
 
 ### Browse
