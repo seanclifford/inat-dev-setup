@@ -8,7 +8,7 @@ These have been written and tested against Ubuntu (xubuntu 18.04 and lubuntu 20.
 - Ubuntu (or similar distro) as the OS
 - Git installed
 - Have access to run as sudo
-- Enough disk space. If running on a VM (as I do), I'd recommend at minimum 20GB for OS + iNaturalist.
+- Enough disk space. If running on a VM (as I do), I'd recommend at minimum 30GB for OS + iNaturalist.
 
 ## How to run
 Start by pulling down this repository.
