@@ -21,6 +21,10 @@ npm install
 #rebuild ReactJS code
 ./node_modules/.bin/gulp webpack
 
+# Generate js translation files
+echo generating js translation files
+rake inaturalist:generate_translations_js > /dev/null
+
 cd ../iNaturalistAPI
 
 #install missing node packages
