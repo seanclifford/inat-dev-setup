@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 echo "installing nvm"
 export NVM_DIR="$HOME/.config/.nvm"
-mkdir $NVM_DIR
+mkdir -p $NVM_DIR
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
 #setup nvm command to run right now
