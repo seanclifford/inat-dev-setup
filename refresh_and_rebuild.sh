@@ -2,6 +2,8 @@
 
 #To be run to get latest changes and apply them. Will pull down current branches.
 
+set -e
+
 . pull_down_inaturalist_repo.sh
 
 cd ../inaturalist
@@ -29,3 +31,5 @@ cd ../iNaturalistAPI
 
 #install missing node packages
 npm install
+
+echo "REFRESH COMPLETE!"
