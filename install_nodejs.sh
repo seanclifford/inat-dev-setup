@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 
+#From https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-echo "installing nvm"
+NVM_VER=$(get_latest_release "nvm-sh/nvm")
+
+echo "installing nvm $NVM_VER"
 export NVM_DIR="$HOME/.config/.nvm"
 mkdir -p $NVM_DIR
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VER/install.sh | bash
 
 #setup nvm command to run right now
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
