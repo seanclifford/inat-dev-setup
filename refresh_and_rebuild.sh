@@ -6,6 +6,8 @@ set -e
 
 . pull_down_inaturalist_repo.sh
 
+. install_nodejs.sh
+
 cd ../inaturalist
 
 #Ensure any docker changes are refreshed
