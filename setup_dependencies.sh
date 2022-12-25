@@ -8,13 +8,14 @@ if ! command apt-cache search postgresql-client-12 | grep -qc 'postgresql-client
 fi
 
 echo "installing some dev dependencies..."
-sudo apt-get install -y \
+sudo apt-get install -y --allow-downgrades \
     gcc \
     build-essential \
     libssl-dev \
     libreadline-dev \
     zlib1g-dev \
     libcurl4-openssl-dev \
+    libpq5=12.12-0ubuntu0.20.04.1 \
     libpq-dev \
     libgeos-dev \
     libgeos++-dev \

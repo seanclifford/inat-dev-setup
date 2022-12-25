@@ -26,7 +26,7 @@ ruby bin/setup
 npm install
 
 #build ReactJS code
-./node_modules/.bin/gulp webpack
+npm run webpack
 
 #make sure rails command is available
 rbenv rehash
