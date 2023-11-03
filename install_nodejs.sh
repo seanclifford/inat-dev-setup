@@ -23,3 +23,11 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VER/install.sh | bas
 NODE_VER=$(cat $DIR/../inaturalist/.nvmrc)
 echo "installing node $NODE_VER with nvm"
 nvm install $NODE_VER
+
+if ! command grep -qc ' NODE_ENV' ~/.bashrc; then
+      echo "=> Appending NODE_ENV env var to ~/.bashrc"
+      NODE_ENV="\\n#Sets the default Node environment to development\\nexport NODE_ENV=\"development\"\\n"
+      command printf "$NODE_ENV" >> ~/.bashrc
+else
+      echo "=> NODE_ENV env var already in ~/.bashrc"
+fi
