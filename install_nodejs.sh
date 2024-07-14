@@ -24,6 +24,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VER/install.sh | bas
 NODE_VER=$(cat $DIR/../inaturalist/.nvmrc)
 echo "installing node $NODE_VER with nvm"
 nvm install $NODE_VER
+nvm alias default $NODE_VER
 
 # upgrade npm version
 nvm install-latest-npm
